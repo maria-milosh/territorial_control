@@ -1,5 +1,5 @@
 # Territorial control
-Finding which villages in Afghanistan are controlled by Taliban/IS
+Finding which villages in Afghanistan are controlled by Taliban/IS.
 
 
 
