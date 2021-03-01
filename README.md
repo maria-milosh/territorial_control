@@ -4,7 +4,7 @@ Finding which villages in Afghanistan are controlled by Taliban/IS.
 
 
 
-##1. Extracting tables from ANQAR method reports:
+## 1. Extracting tables from ANQAR method reports:
 
 There are two types of tables in each method report: (a) a table with all replaced villages + the reason for replacement (b) a table with villages where intercept interviews were used. We export both.
 
@@ -20,24 +20,24 @@ If the method file is .doc:
 The output is in `data > Intercept_interviews` and `data > Replaced_villages`.
 
 
-##2. Cleaning the tables in replaced_villages:
+## 2. Cleaning the tables in replaced_villages:
 
 Extraction is not perfect. While I found no mistakes in text recognition, some of the table structures were distorted so that the text moved to neighboring cells, etc. I compare each table structure to its structure in the corresponding PDF and restore it if it was moved. This is done in `code > 2_clean_tables.R` .
 Corrected tables are then saved to `replaced_villages_cleaned`.
 Tables extracted from .doc files don't require this. Neither do files in `Intercept_interviews`.
 
 
-##3. Matching villages to districts
+## 3. Matching villages to districts
 
 Some tables specify the district where a village belongs, some don't, so they need to be assigned to districts. 2,807 missing districts.
 There are two approaches to this:
 
 (a) Match by village names
 
-... + a lot of stuff here, Mtruk, checking after Mturk, etc.
+... + a lot of stuff to describe here, Mtruk, checking after Mturk, etc.
 
 
-##n. Extracting village/district status from maps
+## n. Extracting village/district status from maps
 
 PDF method files feature maps of village/district statuses, marked by colors. So that can be used too.
 
