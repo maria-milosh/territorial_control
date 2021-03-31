@@ -20,14 +20,22 @@ The output is in data/intercept_interviews and data/replaced_villages. Each wave
 
 ## 2. Cleaning tables in replaced_villages:
 
+<<<<<<< HEAD
 Extraction from pdf is not perfect. While I found no mistakes in text recognition, some of the table structures were distorted so that the text moved to neighboring cells, etc. I compare each table's structure to its structure in the corresponding PDF and restore it if it was moved. This is done manually or with assistance of code/2_clean_tables.R.
 Tables extracted from .doc files don't require this. Neither do files in intercept_interviews.
 Then the tables are merged and transformed into two csv files: Extracted_tables_full/Districts.csv for district-level rows, and Extracted_tables_full/Villages.csv for village-level rows.
+=======
+## 2. Cleaning the tables in replaced_villages:
+>>>>>>> 1974ffa78c4ea076ae64647f10b23cf7fbf99b92
 
 
 ## 3. Matching villages to districts
 
+<<<<<<< HEAD
 Next, in Extracted_tables_full/Villages.csv some villages specify the district, some don't. We need to match all villages to districts.
+=======
+## 3. Matching villages to districts
+>>>>>>> 1974ffa78c4ea076ae64647f10b23cf7fbf99b92
 
 There were 2,805 missing districts out of 8,791 observations.
 There are two approaches to this:
@@ -45,11 +53,19 @@ Next I merged the villages that we were able to confirm into the main file.
 A possible way to proceed here is to find which villages were chosen as substitutes during adjacent waves, because a substitute should belong to the same district. So that would allow finding the district.
 
 
+<<<<<<< HEAD
 ## 4. Extracting village/district status from maps
+=======
+... + a lot of stuff to describe here, Mtruk, checking after Mturk, etc.
+>>>>>>> 1974ffa78c4ea076ae64647f10b23cf7fbf99b92
 
 PDF method files feature maps of village/district statuses, marked by colors. So that can be useful too, although on a less granular level.
 
+<<<<<<< HEAD
 I copied a map from each file and georeferenced it in QGIS. I saved them as rasters in `data/maps/rasters`. Then by overlaying them with a shapefile of Afghan districts I extracted the color value for each of the districts. There were a few very small districts that confused the algorithm, because there were almost no pixels to read the color from, but they also confused humans, so that's the best it gets.
+=======
+## n. Extracting village/district status from maps
+>>>>>>> 1974ffa78c4ea076ae64647f10b23cf7fbf99b92
 
 Results of this procedure are in `data/maps/district_status`.
 

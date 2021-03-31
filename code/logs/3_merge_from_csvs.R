@@ -5,14 +5,12 @@
 # Setup -------------------------------------------------------------------
 
 
-pacman::p_load(dplyr, readr, wrapr, stringr)
+pacman::p_load(tidyverse, wrapr, stringr)
 
-setwd('replaced_villages_cleaned')
+setwd('data/Extracted_tables_parts')
 
 
 list.files(pattern = '.csv')
-
-
 
 
 # 16 to 24 ------------------------------------------------
@@ -21,13 +19,10 @@ list.files(pattern = '.csv')
 waves <- lapply( list.files(pattern = '.csv')[1:9], function(x)
   read_csv(x) %>% 
     mutate(Wave = str_remove_all(x, '.csv'))) %>%
-  
   bind_rows() %>% 
-  
   mutate(LocType = ifelse(LocType %>% is.na() &
                             str_detect(Reason, 'village'), 'Village',
                           LocType))
-
 
 waves %>%  # DISTRICTS PART
   filter(LocType == 'District') %>% 
@@ -216,12 +211,12 @@ waves <- waves %>%
   
   rbind(.,
 
-    read_csv('38.csv') %>% 
+    read_csv('38v1.csv') %>% 
       
       mutate_all(funs(str_squish(.))) %>% 
       
       mutate(LocType = 'Village',
-             Wave = '38',
+             Wave = '38v1',
         
              ReplacedVillage = str_remove_all(ReplacedVillage, ' NA| NA NA'),
              Projected = str_remove(ReplacedVillage, ' Replaced.*'),
@@ -259,7 +254,7 @@ waves_39 <-
   ) %>% 
   
   bind_rows() %>% 
-  rbind(., read_csv('42.csv') )
+  rbind(., read_csv('42v1.csv') )
   
 
 
@@ -336,7 +331,7 @@ waves <- waves %>%
 # Write -------------------------------------------------------------------
 
 
-write_csv(waves, 'replaced_villages_merged/Villages.csv')
+write_csv(waves, '/Users/mariamilosh/Dropbox/territorial_control/data/replaced_villages_merged/Villages.csv')
 
 
 
