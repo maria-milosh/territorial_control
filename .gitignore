@@ -1,5 +1,7 @@
 # Exclude everything in the data folder.
 /data/
+/docs/
+/cache/
 
 ### macOS ###
 # General
